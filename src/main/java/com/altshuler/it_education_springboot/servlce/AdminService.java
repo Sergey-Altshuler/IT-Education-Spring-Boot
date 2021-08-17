@@ -1,0 +1,7 @@
+package com.altshuler.it_education_springboot.servlce;
+
+public interface AdminService {
+    void initialize();
+    void changeProperties(String login, String password);
+    boolean validate(String login, String password);
+}

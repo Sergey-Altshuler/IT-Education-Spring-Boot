@@ -7,6 +7,7 @@ import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
 import com.altshuler.it_education_springboot.util.ParseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,7 +25,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Controller
 public class CoachPutMarksController {
-    private final CourseService courseService = new CourseServiceImpl();
+    @Autowired
+    CourseService courseService;
     private final ParseUtil parseUtil = new ParseUtil();
     private final String regex = "[0-9]+";
 

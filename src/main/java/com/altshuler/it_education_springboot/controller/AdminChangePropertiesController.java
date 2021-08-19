@@ -3,6 +3,7 @@ package com.altshuler.it_education_springboot.controller;
 import com.altshuler.it_education_springboot.servlce.AdminService;
 import com.altshuler.it_education_springboot.servlce.AdminServiceImpl;
 import com.altshuler.it_education_springboot.util.ParseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +15,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 
 @Controller
 public class AdminChangePropertiesController  {
-    private final AdminService adminService = new AdminServiceImpl();
+    @Autowired
+    AdminService adminService;
     private final ParseUtil parseUtil = new ParseUtil();
 
     @RequestMapping(value = "/adminChangeProperties", method = RequestMethod.POST)

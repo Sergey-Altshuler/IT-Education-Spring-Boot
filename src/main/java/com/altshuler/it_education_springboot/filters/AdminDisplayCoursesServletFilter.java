@@ -2,12 +2,11 @@ package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
 import com.mysql.cj.util.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,7 +18,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Component
 public class AdminDisplayCoursesServletFilter implements Filter {
-    private final CourseService courseService = new CourseServiceImpl();
+     @Autowired
+     CourseService courseService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

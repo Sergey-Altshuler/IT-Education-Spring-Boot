@@ -7,6 +7,7 @@ import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
 import com.altshuler.it_education_springboot.servlce.StudentService;
 import com.altshuler.it_education_springboot.servlce.StudentServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,9 +20,10 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Controller
 public class StudentUnregisterCourseController {
-    private final CourseService courseService = new CourseServiceImpl();
-    private final StudentService studentService = new StudentServiceImpl();
-
+    @Autowired
+    CourseService courseService;
+    @Autowired
+    StudentService studentService;
     @RequestMapping(value = "/studentUnregisterCourse", method = RequestMethod.GET)
     public ModelAndView unregisterToCourse(@RequestParam(name = PARAM_NUMBER) String login,
                                          ModelAndView modelAndView) {

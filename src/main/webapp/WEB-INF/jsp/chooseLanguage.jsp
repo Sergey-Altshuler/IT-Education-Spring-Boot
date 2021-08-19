@@ -5,9 +5,15 @@
        value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
        scope="session"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="text"/>
+<fmt:setBundle basename="messages"/>
 <!DOCTYPE html>
 <html lang="${language}">
+
+<%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page session="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%--<html>--%>
 <head>
     <title>ChooseLanguage</title>
     <meta charset="UTF-8">
@@ -38,10 +44,11 @@ width: auto"><fmt:message key="label.chooseLanguage"/></h2>
     padding: 5px 10px;
     border-radius: 2px;
     background-color: antiquewhite;" onchange="submit()">
-            <option value="ru" ${language == 'ru' ? 'selected' : ''} style="font-size: 20px"><fmt:message
-                    key="label.Russian"/></option>
             <option value="en" ${language == 'en' ? 'selected' : ''} style="font-size: 20px"><fmt:message
                     key="label.English"/></option>
+            <option value="ru" ${language == 'ru' ? 'selected' : ''} style="font-size: 20px"><fmt:message
+                    key="label.Russian"/></option>
+
         </select>
     </form>
 </div>

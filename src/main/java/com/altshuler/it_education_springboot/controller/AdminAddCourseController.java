@@ -5,6 +5,7 @@ import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +18,8 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 
 @Controller
 public class AdminAddCourseController {
-    private final CourseService courseService = new CourseServiceImpl();
+    @Autowired
+    CourseService courseService;
     @RequestMapping(value = "/adminAddCourse", method = RequestMethod.POST)
     public ModelAndView validateAdmin(ModelAndView modelAndView, HttpServletRequest request) {
         courseService.add(ConverterProvider.convert(Course.class, request));

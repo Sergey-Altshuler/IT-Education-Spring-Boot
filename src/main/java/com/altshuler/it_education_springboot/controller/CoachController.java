@@ -2,6 +2,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,8 +13,8 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 
 @Controller
 public class CoachController  {
-
-    private final CourseService courseService = new CourseServiceImpl();
+    @Autowired
+    CourseService courseService;
 
     @RequestMapping(value = "/coachEnter", method = RequestMethod.GET)
     public ModelAndView validateCoach(ModelAndView modelAndView) {

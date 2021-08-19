@@ -3,11 +3,10 @@ package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +19,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 @Component
 public class CoachFillMarksFilter implements Filter {
     private final String regex = "[0-9]|10|N";
-    private final CourseService courseService = new CourseServiceImpl();
+    @Autowired
+    CourseService courseService;
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;

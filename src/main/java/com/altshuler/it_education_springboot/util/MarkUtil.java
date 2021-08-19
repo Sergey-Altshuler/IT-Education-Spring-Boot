@@ -4,16 +4,27 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Stats;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.servlce.*;
+import com.altshuler.it_education_springboot.repo.CourseRepository;
+import com.altshuler.it_education_springboot.repo.StatsRepository;
+import com.altshuler.it_education_springboot.repo.StudentRepository;
+import com.altshuler.it_education_springboot.servlce.CourseService;
+import com.altshuler.it_education_springboot.servlce.StatsService;
+import com.altshuler.it_education_springboot.servlce.StudentService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MarkUtil {
+    @Autowired
+    CourseService courseService;
+    @Autowired
+    StudentService studentService;
+    @Autowired
+    StatsService statsService;
     private final ParseUtil parseUtil = new ParseUtil();
-    private final CourseService courseService = new CourseServiceImpl();
-    private final StudentService studentService = new StudentServiceImpl();
-    private final StatsService statsService = new StatsServiceImpl();
     private final String regexMark = "[0-9]|10";
     private final String regexAttendance = "N";
 

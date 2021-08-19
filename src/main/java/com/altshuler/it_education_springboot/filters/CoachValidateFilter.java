@@ -2,11 +2,10 @@ package com.altshuler.it_education_springboot.filters;
 
 
 import com.altshuler.it_education_springboot.servlce.CoachService;
-import com.altshuler.it_education_springboot.servlce.CoachServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -16,7 +15,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 
 @Component
 public class CoachValidateFilter implements Filter {
-    private final CoachService coachService = new CoachServiceImpl();
+   @Autowired
+   CoachService coachService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

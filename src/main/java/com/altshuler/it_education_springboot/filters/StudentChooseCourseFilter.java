@@ -5,6 +5,7 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -18,7 +19,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Component
 public class StudentChooseCourseFilter implements Filter {
-    private final CourseService courseService = new CourseServiceImpl();
+    @Autowired
+    CourseService courseService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

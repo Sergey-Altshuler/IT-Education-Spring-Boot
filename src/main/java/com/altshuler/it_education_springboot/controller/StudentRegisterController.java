@@ -3,9 +3,11 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Student;
+import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.StudentService;
 import com.altshuler.it_education_springboot.servlce.StudentServiceImpl;
 import com.altshuler.it_education_springboot.util.ParseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +20,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Controller
 public class StudentRegisterController {
-    private final StudentService studentService = new StudentServiceImpl();
+    @Autowired
+    StudentService studentService;
     private final ParseUtil parseUtil = new ParseUtil();
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
     public ModelAndView registerStudent(ModelAndView modelAndView, HttpServletRequest request){

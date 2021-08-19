@@ -5,7 +5,9 @@ import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.servlce.CoachService;
 import com.altshuler.it_education_springboot.servlce.CoachServiceImpl;
+import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +20,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Controller
 public class CoachRegisterController {
-    private final CoachService coachService = new CoachServiceImpl();
+    @Autowired
+    CoachService coachService;
     private final ParseUtil parseUtil = new ParseUtil();
     @RequestMapping(value = "/coachRegister", method = RequestMethod.POST)
     public ModelAndView registerCoach(ModelAndView modelAndView, HttpServletRequest request){

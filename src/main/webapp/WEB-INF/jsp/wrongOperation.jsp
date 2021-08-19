@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
-    <title>WrongData</title>
+    <title>WrongOperation</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="myStyles.css" type="text/css">
 </head>

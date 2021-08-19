@@ -7,6 +7,7 @@ import com.altshuler.it_education_springboot.servlce.CoachService;
 import com.altshuler.it_education_springboot.servlce.CoachServiceImpl;
 import com.altshuler.it_education_springboot.servlce.CourseService;
 import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,8 +22,10 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 
 @Controller
 public class CoachChooseCourseController {
-    private final CourseService courseService = new CourseServiceImpl();
-    private final CoachService coachService = new CoachServiceImpl();
+    @Autowired
+    CourseService courseService;
+    @Autowired
+    CoachService coachService;
 
     @RequestMapping(value = "/coachChooseCourse", method = RequestMethod.GET)
     public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) String login,

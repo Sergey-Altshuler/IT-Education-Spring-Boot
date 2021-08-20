@@ -157,6 +157,16 @@ tr {
     color: white;
     font-size: 16px;
 }
+.myButton{
+    background-color: darkblue;
+    border: 3px solid red;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+}
 
 body {
    background: radial-gradient(yellowgreen, seashell);

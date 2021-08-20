@@ -1,19 +1,8 @@
-<%@ page pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="language"
-       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
-       scope="session"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="messages"/>
-<!DOCTYPE html>
-<html lang="${language}">
-
-<%--<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page session="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
-<%--<html>--%>
+
+<html>
 <head>
     <title>ChooseLanguage</title>
     <meta charset="UTF-8">
@@ -37,20 +26,26 @@ width: auto"><fmt:message key="label.chooseLanguage"/></h2>
 <br>
 <br>
 <div align="center" style="font-size: large">
-    <form>
-        <select id="language" name="language" style="width: 25%;
-    font-family: cursive;
-    font-size: 25px;
-    padding: 5px 10px;
-    border-radius: 2px;
-    background-color: antiquewhite;" onchange="submit()">
-            <option value="en" ${language == 'en' ? 'selected' : ''} style="font-size: 20px"><fmt:message
-                    key="label.English"/></option>
-            <option value="ru" ${language == 'ru' ? 'selected' : ''} style="font-size: 20px"><fmt:message
-                    key="label.Russian"/></option>
-
-        </select>
-    </form>
+    <button type="button" style=" background-color: lavender;
+    border: 3px solid red;
+    padding: 12px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;"><a
+            href="chooseLanguage?lang=en">
+        <fmt:message key="label.English"/></a>
+    </button>
+    <button type="button" style="background-color: lavender;
+    border: 3px solid red;
+    padding: 12px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;"><a
+            href="chooseLanguage?lang=ru">
+        <fmt:message key="label.Russian"/></a>
+    </button>
 </div>
 <br>
 <br>

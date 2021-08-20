@@ -4,8 +4,7 @@ package com.altshuler.it_education_springboot.controller;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +30,7 @@ public class CoachPutMarksController {
     private final String regex = "[0-9]+";
 
     @RequestMapping(value = "coachPutMarks", method = RequestMethod.GET)
-    public ModelAndView putMarks(@RequestParam(name = PARAM_NUMBER) String number,
+    public ModelAndView putMarks(@RequestParam(name = PARAM_NUMBER, required = false) String number,
                                  ModelAndView modelAndView) {
         int courseNum;
         if (number == null) courseNum = ProjectInfo.getNumOfCurrentCourse();
@@ -42,7 +41,9 @@ public class CoachPutMarksController {
         Course course = courseService.getById(courseNum);
         ProjectInfo.setCourse(course);
         Student anyStudent = course.getStudents().stream().findAny().get();
-        Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(course);
+        Course currentCourse = ProjectInfo.getMarks().keySet().stream().filter(found -> found.getId().equals(course.getId())).findAny().get();
+        Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(currentCourse);
+
         modelAndView.addObject(ATTR_COURSE_MAP, courseMap);
         Map<String, String> studentMap = new LinkedHashMap<>(courseMap.get(anyStudent));
         List<String> elements = new ArrayList<>(studentMap.keySet());

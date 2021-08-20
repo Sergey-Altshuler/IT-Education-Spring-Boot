@@ -4,26 +4,22 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Stats;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.repo.CourseRepository;
-import com.altshuler.it_education_springboot.repo.StatsRepository;
-import com.altshuler.it_education_springboot.repo.StudentRepository;
-import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.StatsService;
-import com.altshuler.it_education_springboot.servlce.StudentService;
-import lombok.RequiredArgsConstructor;
+import com.altshuler.it_education_springboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
+@Component
 public class MarkUtil {
+
+    @Autowired
+    StatsService statsService;
     @Autowired
     CourseService courseService;
     @Autowired
     StudentService studentService;
-    @Autowired
-    StatsService statsService;
+
     private final ParseUtil parseUtil = new ParseUtil();
     private final String regexMark = "[0-9]|10";
     private final String regexAttendance = "N";
@@ -49,7 +45,8 @@ public class MarkUtil {
 
     public int getIsFinished(Course course) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
-        Map<Student, Map<String, String>> utilMap = markMap.get(course);
+        Course currentCourse = ProjectInfo.getMarks().keySet().stream().filter(found -> found.getId().equals(course.getId())).findAny().get();
+        Map<Student, Map<String, String>> utilMap = markMap.get(currentCourse);
         Student student = course.getStudents().stream().findAny().get();
         Map<String, String> miniMap = utilMap.get(student);
         int result = 0;
@@ -64,7 +61,8 @@ public class MarkUtil {
 
     public void setLessonMarks(Course course, Map<String, String> studentsMarksMap, int numLesson) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
-        Map<Student, Map<String, String>> middleMap = markMap.get(course);
+        Course currentCourse = ProjectInfo.getMarks().keySet().stream().filter(found -> found.getId().equals(course.getId())).findAny().get();
+        Map<Student, Map<String, String>> middleMap = markMap.get(currentCourse);
         for (Map.Entry<String, String> mapEntry : studentsMarksMap.entrySet()) {
             Student student = studentService.getById(Integer.parseInt(mapEntry.getKey()));
             middleMap.get(student).put(String.valueOf(numLesson), mapEntry.getValue());
@@ -75,7 +73,8 @@ public class MarkUtil {
 
     public void calculateIndividualStatistics(Course course) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
-        Map<Student, Map<String, String>> middleMap = markMap.get(course);
+        Course currentCourse = ProjectInfo.getMarks().keySet().stream().filter(found -> found.getId().equals(course.getId())).findAny().get();
+        Map<Student, Map<String, String>> middleMap = markMap.get(currentCourse);
 
         int numOfLessons = course.getNumOfLessons();
         for (Map.Entry<Student, Map<String, String>> mapEntry : middleMap.entrySet()) {
@@ -102,7 +101,8 @@ public class MarkUtil {
 
     public void calculateTotalStatistics(Course course) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
-        Map<Student, Map<String, String>> middleMap = markMap.get(course);
+        Course currentCourse = ProjectInfo.getMarks().keySet().stream().filter(found -> found.getId().equals(course.getId())).findAny().get();
+        Map<Student, Map<String, String>> middleMap = markMap.get(currentCourse);
         int numOfStudents = course.getNumOfStudents();
         double avgAttendance = 0d;
         double avgMark = 0d;
@@ -118,9 +118,7 @@ public class MarkUtil {
         double courseMark = (Math.round(avgMark / numOfStudents * 1000)) / 1000.0;
         Stats stats = Stats.builder().avgMark(courseMark).attendance(courseAttendance).build();
         stats.setCourse(course);
-        course.setStats(stats);
         ProjectInfo.setCourse(course);
-        courseService.add(course);
         statsService.add(stats);
 
     }

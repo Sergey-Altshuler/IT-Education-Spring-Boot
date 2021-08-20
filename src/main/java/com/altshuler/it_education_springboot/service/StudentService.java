@@ -1,9 +1,7 @@
-package com.altshuler.it_education_springboot.servlce;
+package com.altshuler.it_education_springboot.service;
 
 
 import com.altshuler.it_education_springboot.model.Student;
-
-import java.util.List;
 
 public interface StudentService {
     Student add(Student student);
@@ -11,5 +9,5 @@ public interface StudentService {
     boolean validate(String login, String password);
     void logIn(String login, String password);
     void deleteAll();
-    List<Student> getCoachWithCurrentData(String login, String password);
+    Student checkStudent(String login, String password);
 }

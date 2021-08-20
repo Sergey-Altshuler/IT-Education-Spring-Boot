@@ -2,8 +2,7 @@ package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
-import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.util.MarkUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,10 +17,10 @@ import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.Y
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
-
 @Component
 public class CalculateFilter implements Filter {
-    private final MarkUtil markUtil = new MarkUtil();
+    @Autowired
+    MarkUtil markUtil;
     @Autowired
     CourseService courseService;
 

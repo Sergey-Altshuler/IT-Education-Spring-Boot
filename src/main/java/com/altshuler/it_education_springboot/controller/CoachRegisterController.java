@@ -2,10 +2,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Coach;
-import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.servlce.CoachService;
-import com.altshuler.it_education_springboot.servlce.CoachServiceImpl;
-import com.altshuler.it_education_springboot.servlce.CourseService;
+import com.altshuler.it_education_springboot.service.CoachService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,6 @@
 package com.altshuler.it_education_springboot.controller;
 
-import com.altshuler.it_education_springboot.servlce.AdminService;
-import com.altshuler.it_education_springboot.servlce.AdminServiceImpl;
+import com.altshuler.it_education_springboot.service.AdminService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

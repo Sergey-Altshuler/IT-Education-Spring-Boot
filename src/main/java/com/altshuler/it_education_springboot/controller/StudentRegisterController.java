@@ -3,9 +3,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.StudentService;
-import com.altshuler.it_education_springboot.servlce.StudentServiceImpl;
+import com.altshuler.it_education_springboot.service.StudentService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

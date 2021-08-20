@@ -2,8 +2,7 @@ package com.altshuler.it_education_springboot.controller;
 
 
 import com.altshuler.it_education_springboot.model.Course;
-import com.altshuler.it_education_springboot.servlce.CourseService;
-import com.altshuler.it_education_springboot.servlce.CourseServiceImpl;
+import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.util.MarkUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,9 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 public class adminDisplayCoursesController {
     @Autowired
     CourseService courseService;
-    private final MarkUtil markUtil = new MarkUtil();
+
+    @Autowired
+    MarkUtil markUtil;
 
     @RequestMapping(value = "/adminDisplayCourses", method = RequestMethod.GET)
     public ModelAndView displayCoursesList(

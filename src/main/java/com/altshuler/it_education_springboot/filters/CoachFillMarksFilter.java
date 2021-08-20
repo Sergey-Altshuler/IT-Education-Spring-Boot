@@ -2,7 +2,7 @@ package com.altshuler.it_education_springboot.filters;
 
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
-import com.altshuler.it_education_springboot.servlce.CourseService;
+import com.altshuler.it_education_springboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,18 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<c:set var="language"
-       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
-       scope="session"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="text"/>
-<html lang="${language}">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page session="false" %>
+
+<html>
 <head>
     <title>adminDisplayCourses</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="myStyles.css" type="text/css">
 </head>
-<body>
 <body>
 <h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.displayCourses"/></h1>
 <br>

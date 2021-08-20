@@ -3,6 +3,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.util.MarkUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,12 +22,13 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
 @Controller
 public class CoachFillMarksController {
-    private final MarkUtil markUtil = new MarkUtil();
+
+    @Autowired
+    MarkUtil markUtil;
 
     @RequestMapping(value = "coachFillMarks", method = RequestMethod.POST)
-    public ModelAndView putMarks(@RequestParam(name = PARAM_NUM_OF_CURRENT_LESSON) String number,
-                                 ModelAndView modelAndView, HttpServletRequest request) {
-        int numLesson = Integer.parseInt(number);
+    public ModelAndView putMarks(ModelAndView modelAndView, HttpServletRequest request) {
+        int numLesson = Integer.parseInt(request.getParameter(PARAM_NUM_OF_CURRENT_LESSON));
         Enumeration<String> params = request.getParameterNames();
         Map<String, String> studentsAndMarks = new HashMap<>();
         while (params.hasMoreElements()) {

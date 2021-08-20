@@ -51,7 +51,7 @@ public class Course implements Serializable {
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private Set<Student> students = new HashSet<>();
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "coach_id")
     private Coach coach;
 
@@ -73,7 +73,7 @@ public class Course implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
-        return id == course.id;
+        return Objects.equals(id, course.id);
     }
 
     @Override

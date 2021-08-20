@@ -1,4 +1,4 @@
-package com.altshuler.it_education_springboot.servlce;
+package com.altshuler.it_education_springboot.service;
 
 
 

@@ -19,7 +19,7 @@ public class Stats {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "course_id")
     private Course course;
 
@@ -34,7 +34,7 @@ public class Stats {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stats stats = (Stats) o;
-        return id == stats.id;
+        return Objects.equals(id, stats.id);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.model.Course;
-import com.altshuler.it_education_springboot.servlce.CourseService;
+import com.altshuler.it_education_springboot.service.CourseService;
 import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package com.altshuler.it_education_springboot.filters;
 
 
-import com.altshuler.it_education_springboot.servlce.CoachService;
+import com.altshuler.it_education_springboot.service.CoachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

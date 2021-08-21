@@ -3,10 +3,7 @@ package com.altshuler.it_education_springboot.TestInfo;
 public class TestConstants {
     public static final String STUDENT_NAME = "student";
     public static final String STUDENT_SURNAME = "student";
-    public static final String LOGIN = "login";
     public static final String PASSWORD = "password";
-    public static final String COACH_NAME = "coach";
-    public static final String COACH_SURNAME = "coach";
     public static final String COURSE_TITLE_TEST1 = "course1";
     public static final String COURSE_TITLE_TEST2 = "course2";
     public static final String COURSE_TITLE_TEST3 = "course3";

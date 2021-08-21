@@ -8,13 +8,6 @@ import com.altshuler.it_education_springboot.model.Student;
 import static com.altshuler.it_education_springboot.TestInfo.TestConstants.*;
 
 public class TestDataCreator {
-    public static Coach createTestCoach() {
-        return Coach.builder().name(COACH_NAME).surname(COACH_SURNAME).login(LOGIN).password(PASSWORD).build();
-    }
-
-    public static Student createTestStudent() {
-        return Student.builder().name(STUDENT_NAME).surname(STUDENT_SURNAME).login(LOGIN).password(PASSWORD).build();
-    }
 
     public static Stats createTestAddStats() {
         return Stats.builder().avgMark(5d).attendance(100d).build();
@@ -38,10 +31,6 @@ public class TestDataCreator {
 
     public static Student createTestStudentForParsing() {
         return Student.builder().id(1).name(STUDENT_NAME).surname(STUDENT_SURNAME).build();
-    }
-
-    public static Course createEmptyTestCourse() {
-        return Course.builder().build();
     }
 
     public static Student createNewTestStudent() {

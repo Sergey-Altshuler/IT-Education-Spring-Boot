@@ -11,7 +11,7 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 @Controller
 public class AdminValidateController {
     @RequestMapping(value = "/adminValidate", method = RequestMethod.GET)
-    public ModelAndView startAdmin( ModelAndView modelAndView) {
+    public ModelAndView startAdmin(ModelAndView modelAndView) {
         String path = ProjectInfo.getRoles().get(PARAM_ADMIN);
         modelAndView.setViewName(path);
         return modelAndView;

@@ -9,7 +9,7 @@ import static com.altshuler.it_education_springboot.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class AdminServiceTest  {
+public class AdminServiceTest {
     @Autowired
     AdminService adminService;
 

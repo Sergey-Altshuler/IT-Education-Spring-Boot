@@ -22,9 +22,10 @@ public class StudentUnregisterCourseController {
     CourseService courseService;
     @Autowired
     StudentService studentService;
+
     @RequestMapping(value = "/studentUnregisterCourse", method = RequestMethod.GET)
     public ModelAndView unregisterToCourse(@RequestParam(name = PARAM_NUMBER) String login,
-                                         ModelAndView modelAndView) {
+                                           ModelAndView modelAndView) {
         Course course = courseService.getById(Integer.parseInt(login));
         Student student = ProjectInfo.getStudent();
         course.getStudents().remove(student);

@@ -14,6 +14,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 public class CalculateController {
     @Autowired
     MarkUtil markUtil;
+
     @RequestMapping(value = "/calculate", method = RequestMethod.GET)
     public ModelAndView calculate(ModelAndView modelAndView) {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());

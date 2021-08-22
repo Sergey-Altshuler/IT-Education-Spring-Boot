@@ -18,11 +18,12 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
 @Controller
-public class StudentChooseCourseController  {
+public class StudentChooseCourseController {
     @Autowired
     CourseService courseService;
     @Autowired
     StudentService studentService;
+
     @RequestMapping(value = "/studentChooseCourse", method = RequestMethod.GET)
     public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) String login,
                                          ModelAndView modelAndView) {

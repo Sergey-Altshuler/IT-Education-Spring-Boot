@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.filters;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ public class CoachFillMarksFilter implements Filter {
     private final String regex = "[0-9]|10|N";
     @Autowired
     CourseService courseService;
+
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;

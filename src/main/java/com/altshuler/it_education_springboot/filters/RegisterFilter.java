@@ -3,7 +3,6 @@ package com.altshuler.it_education_springboot.filters;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class RegisterFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        if ((req.getRequestURL().toString().matches(".*/studentRegister.*"))||
+        if ((req.getRequestURL().toString().matches(".*/studentRegister.*")) ||
                 (req.getRequestURL().toString().matches(".*/coachRegister.*"))) {
             if ((req.getParameter(PARAM_PASSWORD)).equals(req.getParameter(PARAM_REPEATED))) {
                 filterChain.doFilter(req, resp);

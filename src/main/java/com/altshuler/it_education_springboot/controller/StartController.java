@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_CHOOSE_LANGUAGE;
 
-
 @Controller
 public class StartController {
     @Autowired

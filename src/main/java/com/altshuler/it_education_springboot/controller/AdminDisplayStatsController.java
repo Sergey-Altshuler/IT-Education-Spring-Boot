@@ -11,12 +11,12 @@ import static com.altshuler.it_education_springboot.info.ProjectAttributeConstan
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_ADMIN_DISPLAY_STATS;
 
 @Controller
-public class AdminDisplayStatsController  {
+public class AdminDisplayStatsController {
     @Autowired
     StatsService statsService;
 
     @RequestMapping(value = "/adminDisplayStats", method = RequestMethod.GET)
-    public ModelAndView displayStatsList(ModelAndView modelAndView){
+    public ModelAndView displayStatsList(ModelAndView modelAndView) {
         modelAndView.addObject(ATTR_STATS, statsService.getAll());
         modelAndView.setViewName(PAGE_ADMIN_DISPLAY_STATS);
         return modelAndView;

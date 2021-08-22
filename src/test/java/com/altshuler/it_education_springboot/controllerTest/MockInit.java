@@ -9,7 +9,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import javax.persistence.EntityManagerFactory;
-import java.net.http.HttpRequest;
 
 @WebMvcTest
 public class MockInit {

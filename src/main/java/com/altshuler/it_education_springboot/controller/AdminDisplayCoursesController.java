@@ -18,7 +18,7 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_LAUNCH_ID;
 
 @Controller
-public class adminDisplayCoursesController {
+public class AdminDisplayCoursesController {
     @Autowired
     CourseService courseService;
 

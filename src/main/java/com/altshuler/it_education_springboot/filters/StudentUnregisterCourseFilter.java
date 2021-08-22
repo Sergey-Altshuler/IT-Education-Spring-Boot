@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.filters;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.service.CourseService;

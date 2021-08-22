@@ -7,7 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_ADMIN_ACTIONS;
 
-
 @Controller
 public class AdminController {
     @RequestMapping(value = "/adminEnter", method = RequestMethod.POST)

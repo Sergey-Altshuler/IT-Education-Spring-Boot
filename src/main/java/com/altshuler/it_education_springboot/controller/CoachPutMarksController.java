@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.controller;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Student;
@@ -59,5 +58,5 @@ public class CoachPutMarksController {
         modelAndView.addObject(ATTR_NUMBER, courseNum);
         modelAndView.setViewName(PAGE_COACH_PUT_MARKS);
         return modelAndView;
-        }
     }
+}

@@ -20,4 +20,13 @@ public class TestConstants {
     public static final String ADMIN_PASSWORD = "password";
     public static final String ADMIN_LOGIN_CHANGED = "changed";
     public static final String ADMIN_PASSWORD_CHANGED = "changed";
+    public static final String TEST_ADMIN_LOGIN = "admin";
+    public static final String TEST_ADMIN_PASSWORD = "password";
+    public static final String TEST_ADMIN_CHANGED_PASSWORD = "newPass";
+    public static final String TEST_COACH_LOGIN = "coach";
+    public static final String TEST_COACH_PASSWORD = "coach";
+    public static final String TEST_COACH_CONFIRMED_PASSWORD = "coach";
+    public static final String TEST_STUDENT_LOGIN = "student";
+    public static final String TEST_STUDENT_PASSWORD = "student";
+    public static final String TEST_STUDENT_CONFIRMED_PASSWORD = "student";
 }

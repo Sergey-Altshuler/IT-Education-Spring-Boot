@@ -10,7 +10,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 @Controller
 public class WelcomeController {
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
-    public ModelAndView welcome (ModelAndView modelAndView){
+    public ModelAndView welcome(ModelAndView modelAndView) {
         modelAndView.setViewName(PAGE_WELCOME);
         return modelAndView;
     }

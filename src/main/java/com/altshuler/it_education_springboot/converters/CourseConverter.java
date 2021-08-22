@@ -1,7 +1,5 @@
 package com.altshuler.it_education_springboot.converters;
 
-
-
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.util.CourseGroupUtil;
 import com.altshuler.it_education_springboot.util.ParseUtil;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.NO;
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.YES;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*;
-
 
 public class CourseConverter implements Converter<Course> {
     private final CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
@@ -32,6 +29,5 @@ public class CourseConverter implements Converter<Course> {
                 .isFinished(NO)
                 .coachRequired(YES)
                 .remaining(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS))).build();
-
     }
 }

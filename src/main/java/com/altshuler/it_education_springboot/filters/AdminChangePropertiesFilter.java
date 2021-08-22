@@ -14,8 +14,9 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 
 @Component
 public class AdminChangePropertiesFilter implements Filter {
-     @Autowired
-     AdminService adminService;
+    @Autowired
+    AdminService adminService;
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;

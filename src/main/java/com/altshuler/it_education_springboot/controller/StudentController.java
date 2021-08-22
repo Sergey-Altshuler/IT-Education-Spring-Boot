@@ -11,7 +11,7 @@ import static com.altshuler.it_education_springboot.info.ProjectAttributeConstan
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_STUDENT_CHOOSE_COURSE;
 
 @Controller
-public class StudentController  {
+public class StudentController {
     @Autowired
     CourseService courseService;
 
@@ -21,5 +21,4 @@ public class StudentController  {
         modelAndView.setViewName(PAGE_STUDENT_CHOOSE_COURSE);
         return modelAndView;
     }
-
 }

@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.service;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Admin;
 import com.altshuler.it_education_springboot.repo.AdminRepository;

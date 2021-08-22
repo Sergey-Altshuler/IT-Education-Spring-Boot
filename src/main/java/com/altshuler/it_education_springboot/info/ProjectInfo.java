@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.info;
 
-
 import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Student;

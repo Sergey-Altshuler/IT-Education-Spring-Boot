@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import java.io.IOException;
+
 @Component
 public class CharsetFilter implements Filter {
     private String encoding;

@@ -158,9 +158,8 @@ tr {
     font-size: 16px;
 }
 .myButton{
-    background-color: darkblue;
+    background-color: wheat;
     border: 3px solid red;
-    color: white;
     padding: 12px 20px;
     text-align: center;
     display: inline-block;

@@ -10,7 +10,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 @Controller
 public class WrongOperationController {
     @RequestMapping(value = "/wrongOperation", method = RequestMethod.GET)
-    public ModelAndView welcome (ModelAndView modelAndView){
+    public ModelAndView welcome(ModelAndView modelAndView) {
         modelAndView.setViewName(PAGE_WRONG_OPERATION);
         return modelAndView;
     }

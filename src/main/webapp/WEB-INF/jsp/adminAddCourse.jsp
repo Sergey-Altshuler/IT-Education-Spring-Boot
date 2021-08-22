@@ -75,7 +75,8 @@
         <input name="finishDate" type="date" value="2021-08-01" min="2021-08-01" max="2024-01-01" required>
         <br>
         <br>
-        <input value=<fmt:message key="label.createNewCourse"/> type="submit"/>
+        <input value=
+               <fmt:message key="label.createNewCourse"/> type="submit"/>
     </form>
 </div>
 </body>

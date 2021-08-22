@@ -14,7 +14,7 @@ import java.util.Objects;
 @Builder
 @Table(name = "administrator")
 @Entity(name = "admin")
-public class Admin  {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

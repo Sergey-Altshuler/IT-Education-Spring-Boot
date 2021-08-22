@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.controller;
 
-
 import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.service.StudentService;
@@ -21,8 +20,9 @@ public class StudentRegisterController {
     @Autowired
     StudentService studentService;
     private final ParseUtil parseUtil = new ParseUtil();
+
     @RequestMapping(value = "/studentRegister", method = RequestMethod.POST)
-    public ModelAndView registerStudent(ModelAndView modelAndView, HttpServletRequest request){
+    public ModelAndView registerStudent(ModelAndView modelAndView, HttpServletRequest request) {
         studentService.add(ConverterProvider.convert(Student.class, request));
         modelAndView.addObject(PARAM_PASSWORD, parseUtil.encryptPassword(request.getParameter(PARAM_PASSWORD)));
         modelAndView.setViewName(PAGE_STUDENT_SUCCESS_REGISTER);

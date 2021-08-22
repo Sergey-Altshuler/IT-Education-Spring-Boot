@@ -9,8 +9,8 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.*;
 
 @Controller
 public class ChooseRolePageController {
-    @RequestMapping (value = "/chooseRolePage", method = RequestMethod.GET)
-    public ModelAndView goToChooseRolePage( ModelAndView modelAndView){
+    @RequestMapping(value = "/chooseRolePage", method = RequestMethod.GET)
+    public ModelAndView goToChooseRolePage(ModelAndView modelAndView) {
         modelAndView.setViewName(PAGE_CHOOSE_ROLE);
         return modelAndView;
     }

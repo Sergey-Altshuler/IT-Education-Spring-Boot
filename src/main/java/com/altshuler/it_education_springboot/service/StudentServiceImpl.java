@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.service;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.repo.StudentRepository;
@@ -24,7 +23,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student checkStudent(String login, String password) {
-        List<Student>studentList =  studentRepository.getCoachWithCurrentData(login, password);
+        List<Student> studentList = studentRepository.getCoachWithCurrentData(login, password);
         if ((studentList == null) || (studentList.size() == 0)) {
             return null;
         } else return studentList.get(0);

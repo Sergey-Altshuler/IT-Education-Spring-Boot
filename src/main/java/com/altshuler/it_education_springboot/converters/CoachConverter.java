@@ -1,12 +1,9 @@
 package com.altshuler.it_education_springboot.converters;
 
-
 import com.altshuler.it_education_springboot.model.Coach;
-
 import javax.servlet.http.HttpServletRequest;
 
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*;
-
 
 public class CoachConverter implements Converter<Coach> {
     public Coach convert(HttpServletRequest request) {
@@ -17,6 +14,5 @@ public class CoachConverter implements Converter<Coach> {
                 .name(request.getParameter(PARAM_NAME))
                 .surname(request.getParameter(PARAM_SURNAME))
                 .build();
-
     }
 }

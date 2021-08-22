@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.filters;
 
-
 import com.altshuler.it_education_springboot.service.CoachService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,8 +14,8 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 
 @Component
 public class CoachValidateFilter implements Filter {
-   @Autowired
-   CoachService coachService;
+    @Autowired
+    CoachService coachService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

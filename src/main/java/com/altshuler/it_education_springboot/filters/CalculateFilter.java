@@ -36,6 +36,6 @@ public class CalculateFilter implements Filter {
                 ProjectInfo.setCourse(course);
                 filterChain.doFilter(req, resp);
             } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
-        } else  filterChain.doFilter(req, resp);
+        } else filterChain.doFilter(req, resp);
     }
 }

@@ -45,8 +45,6 @@ public class StudentServiceTest {
     void getById() {
         studentService.add(TestDataCreator.createValidateTestStudent());
         Student detached = studentService.getById(3);
-        System.out.println(detached.getLogin());
-        System.out.println(detached.getId());
         assertEquals(VALIDATE_LOGIN, detached.getLogin());
 
     }

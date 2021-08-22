@@ -17,9 +17,9 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_LAUNCH_ID;
 
 @Component
-public class AdminDisplayCoursesServletFilter implements Filter {
-     @Autowired
-     CourseService courseService;
+public class AdminDisplayCoursesFilter implements Filter {
+    @Autowired
+    CourseService courseService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

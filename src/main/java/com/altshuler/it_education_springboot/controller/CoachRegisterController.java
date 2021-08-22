@@ -21,7 +21,7 @@ public class CoachRegisterController {
     CoachService coachService;
     private final ParseUtil parseUtil = new ParseUtil();
     @RequestMapping(value = "/coachRegister", method = RequestMethod.POST)
-    public ModelAndView registerCoach(ModelAndView modelAndView, HttpServletRequest request){
+    public ModelAndView registerCoach(ModelAndView modelAndView, HttpServletRequest request) {
         coachService.add(ConverterProvider.convert(Coach.class, request));
         modelAndView.addObject(PARAM_PASSWORD, parseUtil.encryptPassword(request.getParameter(PARAM_PASSWORD)));
         modelAndView.setViewName(PAGE_COACH_SUCCESS_REGISTER);

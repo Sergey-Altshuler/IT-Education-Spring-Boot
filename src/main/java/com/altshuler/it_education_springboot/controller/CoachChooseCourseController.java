@@ -37,5 +37,4 @@ public class CoachChooseCourseController {
         modelAndView.setViewName(PAGE_COACH_SUCCESS_ENROLL);
         return modelAndView;
     }
-
 }

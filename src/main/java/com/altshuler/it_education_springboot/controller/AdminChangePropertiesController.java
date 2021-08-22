@@ -13,7 +13,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*;
 
 @Controller
-public class AdminChangePropertiesController  {
+public class AdminChangePropertiesController {
     @Autowired
     AdminService adminService;
     private final ParseUtil parseUtil = new ParseUtil();

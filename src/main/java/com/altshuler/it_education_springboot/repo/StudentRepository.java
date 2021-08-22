@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.repo;
 
-import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

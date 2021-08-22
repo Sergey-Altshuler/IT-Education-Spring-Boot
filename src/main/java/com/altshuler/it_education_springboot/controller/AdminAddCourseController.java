@@ -19,6 +19,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 public class AdminAddCourseController {
     @Autowired
     CourseService courseService;
+
     @RequestMapping(value = "/adminAddCourse", method = RequestMethod.POST)
     public ModelAndView validateAdmin(ModelAndView modelAndView, HttpServletRequest request) {
         courseService.add(ConverterProvider.convert(Course.class, request));

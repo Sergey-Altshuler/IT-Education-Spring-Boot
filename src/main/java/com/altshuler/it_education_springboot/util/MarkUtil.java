@@ -4,12 +4,15 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Stats;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.service.*;
+import com.altshuler.it_education_springboot.service.CourseService;
+import com.altshuler.it_education_springboot.service.StatsService;
+import com.altshuler.it_education_springboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 @Component
 public class MarkUtil {
 

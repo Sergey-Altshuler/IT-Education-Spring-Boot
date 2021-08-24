@@ -6,14 +6,15 @@ import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-@RequiredArgsConstructor
 public class CourseServiceTest {
-    private final CourseService courseService;
+    @Autowired
+    CourseService courseService;
 
     @BeforeEach
     void generateForTesting() {

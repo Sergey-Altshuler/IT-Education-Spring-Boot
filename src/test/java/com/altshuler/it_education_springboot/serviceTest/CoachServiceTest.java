@@ -7,15 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static com.altshuler.it_education_springboot.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@RequiredArgsConstructor
 public class CoachServiceTest {
-    private final CoachService coachService;
+    @Autowired
+    CoachService coachService;
 
     @BeforeEach
     void generateForTesting() {

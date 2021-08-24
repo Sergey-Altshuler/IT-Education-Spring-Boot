@@ -3,7 +3,7 @@ package com.altshuler.it_education_springboot.filters;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.service.CourseService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -15,9 +15,9 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
 @Component
+@RequiredArgsConstructor
 public class StudentChooseCourseFilter implements Filter {
-    @Autowired
-    CourseService courseService;
+    private final CourseService courseService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -30,7 +30,11 @@ public class StudentChooseCourseFilter implements Filter {
                 course.setRemaining(course.getRemaining() - 1);
                 courseService.add(course);
                 filterChain.doFilter(req, resp);
-            } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
-        } else filterChain.doFilter(req, resp);
+            } else {
+                resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
+            }
+        } else {
+            filterChain.doFilter(req, resp);
+        }
     }
 }

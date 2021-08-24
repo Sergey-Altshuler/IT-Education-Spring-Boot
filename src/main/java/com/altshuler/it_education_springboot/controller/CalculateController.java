@@ -2,7 +2,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.util.MarkUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,9 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_COACH_MARKS_REDIRECT;
 
 @Controller
+@RequiredArgsConstructor
 public class CalculateController {
-    @Autowired
-    MarkUtil markUtil;
+   private final MarkUtil markUtil;
 
     @RequestMapping(value = "/calculate", method = RequestMethod.GET)
     public ModelAndView calculate(ModelAndView modelAndView) {

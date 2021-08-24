@@ -2,6 +2,7 @@ package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.service.CourseService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,10 +17,10 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
 
 @Component
+@RequiredArgsConstructor
 public class CoachFillMarksFilter implements Filter {
     private final String regex = "[0-9]|10|N";
-    @Autowired
-    CourseService courseService;
+    private final CourseService courseService;
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
@@ -44,10 +45,16 @@ public class CoachFillMarksFilter implements Filter {
                         }
                     }
                 }
-                if (areRightParams)
+                if (areRightParams) {
                     filterChain.doFilter(req, resp);
-                else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
-            } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
-        } else filterChain.doFilter(req, resp);
+                } else {
+                    resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
+                }
+            } else {
+                resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
+            }
+        } else {
+            filterChain.doFilter(req, resp);
+        }
     }
 }

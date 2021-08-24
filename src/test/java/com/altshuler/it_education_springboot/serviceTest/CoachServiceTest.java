@@ -3,19 +3,19 @@ package com.altshuler.it_education_springboot.serviceTest;
 import com.altshuler.it_education_springboot.TestInfo.TestDataCreator;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.service.CoachService;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static com.altshuler.it_education_springboot.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@RequiredArgsConstructor
 public class CoachServiceTest {
-    @Autowired
-    CoachService coachService;
+    private final CoachService coachService;
 
     @BeforeEach
     void generateForTesting() {

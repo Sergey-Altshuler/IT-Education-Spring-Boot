@@ -2,7 +2,7 @@ package com.altshuler.it_education_springboot.controller;
 
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.util.MarkUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,10 +16,10 @@ import java.util.Map;
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_COACH_MARKS_REDIRECT;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
 @Controller
+@RequiredArgsConstructor
 public class CoachFillMarksController {
 
-    @Autowired
-    MarkUtil markUtil;
+    private final MarkUtil markUtil;
 
     @RequestMapping(value = "coachFillMarks", method = RequestMethod.POST)
     public ModelAndView putMarks(ModelAndView modelAndView, HttpServletRequest request) {

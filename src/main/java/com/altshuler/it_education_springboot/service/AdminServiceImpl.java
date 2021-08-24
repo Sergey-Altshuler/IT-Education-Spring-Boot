@@ -3,16 +3,16 @@ package com.altshuler.it_education_springboot.service;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Admin;
 import com.altshuler.it_education_springboot.repo.AdminRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.START_ADMIN_LOGIN;
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.START_ADMIN_PASSWORD;
 
 @Service
+@RequiredArgsConstructor
 public class AdminServiceImpl implements AdminService {
-    @Autowired
-    private AdminRepository adminRepository;
+    private final AdminRepository adminRepository;
 
     public void initialize() {
         if (!ProjectInfo.IsAdminInitialized()) {

@@ -3,7 +3,7 @@ package com.altshuler.it_education_springboot.filters;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.service.CourseService;
 import com.mysql.cj.util.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -17,9 +17,9 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_LAUNCH_ID;
 
 @Component
+@RequiredArgsConstructor
 public class AdminDisplayCoursesFilter implements Filter {
-    @Autowired
-    CourseService courseService;
+    private final CourseService courseService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -28,9 +28,9 @@ public class AdminDisplayCoursesFilter implements Filter {
         String contextPath = req.getContextPath();
         if ((req.getRequestURL().toString().matches(".*/adminDisplayCourses.*"))) {
 
-            if (StringUtils.isNullOrEmpty(req.getParameter(PARAM_LAUNCH_ID)) && (StringUtils.isNullOrEmpty(req.getParameter(PARAM_DELETE_ID))))
+            if (StringUtils.isNullOrEmpty(req.getParameter(PARAM_LAUNCH_ID)) && (StringUtils.isNullOrEmpty(req.getParameter(PARAM_DELETE_ID)))) {
                 filterChain.doFilter(req, resp);
-            else {
+            } else {
                 if (!StringUtils.isNullOrEmpty(req.getParameter(PARAM_LAUNCH_ID))) {
                     Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_LAUNCH_ID)));
                     if ((!StringUtils.isNullOrEmpty(course.getCoachRequired())) && ((course.getRemaining() == 0) && (course.getCoachRequired().equals(NO)))) {
@@ -48,7 +48,9 @@ public class AdminDisplayCoursesFilter implements Filter {
                     }
                 }
             }
-        } else filterChain.doFilter(req, resp);
+        } else {
+            filterChain.doFilter(req, resp);
+        }
     }
 }
 

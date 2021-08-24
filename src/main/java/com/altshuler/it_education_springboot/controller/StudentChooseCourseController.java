@@ -1,12 +1,11 @@
 package com.altshuler.it_education_springboot.controller;
 
-
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,11 +17,10 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
 @Controller
+@RequiredArgsConstructor
 public class StudentChooseCourseController {
-    @Autowired
-    CourseService courseService;
-    @Autowired
-    StudentService studentService;
+    private final CourseService courseService;
+    private final StudentService studentService;
 
     @RequestMapping(value = "/studentChooseCourse", method = RequestMethod.GET)
     public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) String login,

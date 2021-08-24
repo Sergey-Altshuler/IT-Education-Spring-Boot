@@ -4,26 +4,22 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.model.Stats;
 import com.altshuler.it_education_springboot.model.Student;
-import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.service.StatsService;
 import com.altshuler.it_education_springboot.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class MarkUtil {
 
-    @Autowired
-    StatsService statsService;
-    @Autowired
-    CourseService courseService;
-    @Autowired
-    StudentService studentService;
+    private final StatsService statsService;
 
-    private final ParseUtil parseUtil = new ParseUtil();
+    private final StudentService studentService;
+
     private final String regexMark = "[0-9]|10";
     private final String regexAttendance = "N";
 
@@ -39,7 +35,7 @@ public class MarkUtil {
         Map<Student, Map<String, String>> middleMap = new LinkedHashMap<>();
         for (Student student : course.getStudents()) {
             Map<String, String> studentMarkMap = new LinkedHashMap<>(miniMap);
-            studentMarkMap.put("student", parseUtil.parseStudent(student));
+            studentMarkMap.put("student", ParseUtil.parseStudent(student));
             middleMap.put(student, new LinkedHashMap<>(studentMarkMap));
         }
         markMap.put(course, middleMap);

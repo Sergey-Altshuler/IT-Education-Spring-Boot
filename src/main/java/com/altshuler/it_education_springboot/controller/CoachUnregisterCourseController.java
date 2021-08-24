@@ -5,7 +5,7 @@ import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.service.CoachService;
 import com.altshuler.it_education_springboot.service.CourseService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,11 +17,10 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
 @Controller
+@RequiredArgsConstructor
 public class CoachUnregisterCourseController {
-    @Autowired
-    CourseService courseService;
-    @Autowired
-    CoachService coachService;
+    private final CourseService courseService;
+    private final CoachService coachService;
 
     @RequestMapping(value = "/coachUnregisterCourse", method = RequestMethod.GET)
     public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) String login,

@@ -23,7 +23,11 @@ public class RegisterFilter implements Filter {
                 (req.getRequestURL().toString().matches(".*/coachRegister.*"))) {
             if ((req.getParameter(PARAM_PASSWORD)).equals(req.getParameter(PARAM_REPEATED))) {
                 filterChain.doFilter(req, resp);
-            } else resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
-        } else filterChain.doFilter(req, resp);
+            } else {
+                resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
+            }
+        } else {
+            filterChain.doFilter(req, resp);
+        }
     }
 }

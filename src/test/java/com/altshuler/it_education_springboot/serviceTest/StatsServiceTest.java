@@ -2,18 +2,18 @@ package com.altshuler.it_education_springboot.serviceTest;
 
 import com.altshuler.it_education_springboot.TestInfo.TestDataCreator;
 import com.altshuler.it_education_springboot.service.StatsService;
+import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@RequiredArgsConstructor
 public class StatsServiceTest {
-    @Autowired
-    StatsService statsService;
+    private final StatsService statsService;
 
     @BeforeEach
     void generateForTesting() {

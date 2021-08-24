@@ -15,7 +15,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = AdminChangePropertiesController.class)
 public class AdminChangePropertiesControllerTest extends MockInit {
-    ParseUtil parseUtil = new ParseUtil();
 
     @Test
     void moveToAdminChangeProperties() throws Exception {
@@ -25,7 +24,7 @@ public class AdminChangePropertiesControllerTest extends MockInit {
                 .param(PARAM_PASSWORD, TEST_ADMIN_PASSWORD)
                 .param(PARAM_CHANGED, TEST_ADMIN_CHANGED_PASSWORD)
                 .param(PARAM_REPEATED, TEST_ADMIN_CHANGED_PASSWORD))
-                .andExpect(model().attribute(PARAM_PASSWORD, parseUtil.encryptPassword(TEST_ADMIN_CHANGED_PASSWORD)))
+                .andExpect(model().attribute(PARAM_PASSWORD, ParseUtil.encryptPassword(TEST_ADMIN_CHANGED_PASSWORD)))
                 .andExpect(status().isOk())
                 .andExpect(view().name(PAGE_ADMIN_SUCCESS_CHANGE));
     }

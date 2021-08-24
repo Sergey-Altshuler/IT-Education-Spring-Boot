@@ -1,17 +1,18 @@
 package com.altshuler.it_education_springboot.service;
+
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.repo.CoachRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CoachServiceImpl implements CoachService {
 
-    @Autowired
-    private CoachRepository coachRepository;
+    private final CoachRepository coachRepository;
 
     public Coach add(Coach coach) {
         return coachRepository.save(coach);

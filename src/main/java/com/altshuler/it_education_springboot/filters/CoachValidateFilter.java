@@ -1,7 +1,7 @@
 package com.altshuler.it_education_springboot.filters;
 
 import com.altshuler.it_education_springboot.service.CoachService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -13,9 +13,9 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*;
 
 @Component
+@RequiredArgsConstructor
 public class CoachValidateFilter implements Filter {
-    @Autowired
-    CoachService coachService;
+    private final CoachService coachService;
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -23,15 +23,19 @@ public class CoachValidateFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
         if ((req.getRequestURL().toString().matches(".*/coachEnter.*"))) {
-            if ((req.getParameter(PARAM_LOGIN) == null) && (req.getParameter(PARAM_PASSWORD) == null))
+            if ((req.getParameter(PARAM_LOGIN) == null) && (req.getParameter(PARAM_PASSWORD) == null)) {
                 filterChain.doFilter(req, resp);
-            else {
+            } else {
                 if ((coachService.validate(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD)))
                         && ((req.getParameter(PARAM_PASSWORD)).equals(req.getParameter(PARAM_REPEATED)))) {
                     coachService.logIn(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD));
                     filterChain.doFilter(req, resp);
-                } else resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
+                } else {
+                    resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
+                }
             }
-        } else filterChain.doFilter(req, resp);
+        } else {
+            filterChain.doFilter(req, resp);
+        }
     }
 }

@@ -2,15 +2,17 @@ package com.altshuler.it_education_springboot.service;
 
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.repo.CourseRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CourseServiceImpl implements CourseService {
-    @Autowired
-    private CourseRepository courseRepository;
+
+    private final CourseRepository courseRepository;
 
     public Course add(Course course) {
         return courseRepository.save(course);

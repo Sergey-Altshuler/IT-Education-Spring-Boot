@@ -1,6 +1,5 @@
 package com.altshuler.it_education_springboot.utilTest;
 
-
 import com.altshuler.it_education_springboot.util.CourseGroupUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

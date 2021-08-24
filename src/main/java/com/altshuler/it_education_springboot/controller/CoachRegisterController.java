@@ -4,7 +4,7 @@ import com.altshuler.it_education_springboot.converters.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.service.CoachService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,14 +16,13 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_PASSWORD;
 
 @Controller
+@RequiredArgsConstructor
 public class CoachRegisterController {
-    @Autowired
-    CoachService coachService;
-    private final ParseUtil parseUtil = new ParseUtil();
+    private final CoachService coachService;
     @RequestMapping(value = "/coachRegister", method = RequestMethod.POST)
     public ModelAndView registerCoach(ModelAndView modelAndView, HttpServletRequest request) {
         coachService.add(ConverterProvider.convert(Coach.class, request));
-        modelAndView.addObject(PARAM_PASSWORD, parseUtil.encryptPassword(request.getParameter(PARAM_PASSWORD)));
+        modelAndView.addObject(PARAM_PASSWORD, ParseUtil.encryptPassword(request.getParameter(PARAM_PASSWORD)));
         modelAndView.setViewName(PAGE_COACH_SUCCESS_REGISTER);
         return modelAndView;
     }

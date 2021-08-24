@@ -12,7 +12,6 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 
 public class CourseConverter implements Converter<Course> {
     private final CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
-    private final ParseUtil parseUtil = new ParseUtil();
 
     public Course convert(HttpServletRequest request) {
         return Course.builder()
@@ -23,8 +22,8 @@ public class CourseConverter implements Converter<Course> {
                 .address(request.getParameter(PARAM_ADDRESS))
                 .numOfStudents(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS)))
                 .subgroupNum(courseGroupUtil.getCourseGroup(request.getParameter(PARAM_TITLE)))
-                .startDate(parseUtil.parseDate(request.getParameter(PARAM_START_DATE)))
-                .finishDate(parseUtil.parseDate(request.getParameter(PARAM_FINISH_DATE)))
+                .startDate(ParseUtil.parseDate(request.getParameter(PARAM_START_DATE)))
+                .finishDate(ParseUtil.parseDate(request.getParameter(PARAM_FINISH_DATE)))
                 .isStarted(NO)
                 .isFinished(NO)
                 .coachRequired(YES)

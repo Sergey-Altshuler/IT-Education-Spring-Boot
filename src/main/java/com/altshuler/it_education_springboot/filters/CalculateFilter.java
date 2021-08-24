@@ -4,7 +4,7 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Course;
 import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.util.MarkUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -18,11 +18,10 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_NUMBER;
 
 @Component
+@RequiredArgsConstructor
 public class CalculateFilter implements Filter {
-    @Autowired
-    MarkUtil markUtil;
-    @Autowired
-    CourseService courseService;
+    private final MarkUtil markUtil;
+    private final CourseService courseService;
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
@@ -30,12 +29,16 @@ public class CalculateFilter implements Filter {
         String contextPath = req.getContextPath();
         if ((req.getRequestURL().toString().matches(".*/calculate.*"))) {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
-            if ((course != null) && (course.getIsFinished().equals(NO)) && (ProjectInfo.getCourse() != null) && (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0 && (ProjectInfo.getCourse().getStats() == null))) {
+            if (isFinished(course)) {
                 course.setIsFinished(YES);
                 courseService.add(course);
                 ProjectInfo.setCourse(course);
                 filterChain.doFilter(req, resp);
-            } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
-        } else filterChain.doFilter(req, resp);
+            } else {resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);}
+        } else {filterChain.doFilter(req, resp);}
+    }
+
+    private boolean isFinished(Course course) {
+        return ((course != null) && ((NO).equals(course.getIsFinished())) && (ProjectInfo.getCourse() != null) && (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0 && (ProjectInfo.getCourse().getStats() == null)));
     }
 }

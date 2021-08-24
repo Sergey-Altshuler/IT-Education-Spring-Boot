@@ -15,28 +15,27 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class ParseUtilTest {
-    ParseUtil parseUtil = new ParseUtil();
 
     @Test
     void parseRightDate() {
         String stringDate = SUCCESS_DATE;
         Date date = Date.valueOf(LocalDate.parse(stringDate));
-        assertEquals(date, parseUtil.parseDate(stringDate));
+        assertEquals(date, ParseUtil.parseDate(stringDate));
     }
 
     @Test
     void parseWrongDate() {
-        assertThrows(Exception.class, () -> parseUtil.parseDate(FAIL_DATE));
+        assertThrows(Exception.class, () -> ParseUtil.parseDate(FAIL_DATE));
     }
 
     @Test
     void parseStudent() {
         Student student = TestDataCreator.createTestStudentForParsing();
-        assertEquals("student student", parseUtil.parseStudent(student));
+        assertEquals("student student", ParseUtil.parseStudent(student));
     }
 
     @Test
     void encryptPassword() {
-        assertEquals("********", parseUtil.encryptPassword(PASSWORD));
+        assertEquals("********", ParseUtil.encryptPassword(PASSWORD));
     }
 }

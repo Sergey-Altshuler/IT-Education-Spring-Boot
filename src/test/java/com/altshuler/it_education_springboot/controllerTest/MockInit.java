@@ -38,5 +38,7 @@ public class MockInit {
     StudentService studentService;
     @MockBean
     MarkUtil markUtil;
+    @MockBean
+    CourseRestService courseRestService;
 
 }

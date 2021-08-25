@@ -1,6 +1,6 @@
 package com.altshuler.it_education_springboot.converterTest;
 
-import com.altshuler.it_education_springboot.converters.ConverterProvider;
+import com.altshuler.it_education_springboot.converter.ConverterProvider;
 import com.altshuler.it_education_springboot.model.Coach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

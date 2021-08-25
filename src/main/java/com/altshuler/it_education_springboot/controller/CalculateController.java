@@ -4,8 +4,7 @@ import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.util.MarkUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_COACH_MARKS_REDIRECT;
@@ -15,7 +14,7 @@ import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PA
 public class CalculateController {
    private final MarkUtil markUtil;
 
-    @RequestMapping(value = "/calculate", method = RequestMethod.GET)
+    @GetMapping(value = "/calculate")
     public ModelAndView calculate(ModelAndView modelAndView) {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
         markUtil.calculateTotalStatistics(ProjectInfo.getCourse());

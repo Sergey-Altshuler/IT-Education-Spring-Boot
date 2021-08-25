@@ -7,8 +7,7 @@ import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,10 +21,10 @@ public class StudentChooseCourseController {
     private final CourseService courseService;
     private final StudentService studentService;
 
-    @RequestMapping(value = "/studentChooseCourse", method = RequestMethod.GET)
-    public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) String login,
+    @GetMapping(value = "/studentChooseCourse")
+    public ModelAndView registerToCourse(@RequestParam(name = PARAM_NUMBER) Integer num,
                                          ModelAndView modelAndView) {
-        Course course = courseService.getById(Integer.parseInt(login));
+        Course course = courseService.getById(num);
         Student student = ProjectInfo.getStudent();
         course.addStudent(student);
         student.setCourse(course);

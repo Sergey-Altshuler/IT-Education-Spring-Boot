@@ -59,17 +59,19 @@ input[type=text]:focus, input[type=password]:focus {
 
 input[type=submit] {
     background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(wheat), to(white), color-stop(0.5, lavender));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
     padding: 3px 7px;
-    color: #333;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #666;
     cursor: pointer;
-    width: 90px;
-    height: 35px;
+    width: 140px;
+    height: 40px;
 }
 
 select {

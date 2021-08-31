@@ -18,6 +18,7 @@ import static com.altshuler.it_education_springboot.info.ProjectAttributeConstan
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.*;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_COACH;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_PASSWORD;
+import static com.altshuler.it_education_springboot.info.ProjectRequestURLNames.REQUEST_COACH_MOVE_TO_REGISTER;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,12 +30,6 @@ public class CoachSimpleController {
     public ModelAndView validateCoach(ModelAndView modelAndView) {
         modelAndView.addObject(ATTR_COURSES, courseService.getAll());
         modelAndView.setViewName(PAGE_COACH_CHOOSE_COURSE);
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/coachMoveToRegister")
-    public ModelAndView start(ModelAndView modelAndView) {
-        modelAndView.setViewName(PAGE_COACH_REGISTER);
         return modelAndView;
     }
 

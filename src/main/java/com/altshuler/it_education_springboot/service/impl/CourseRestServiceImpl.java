@@ -14,7 +14,7 @@ public class CourseRestServiceImpl implements CourseRestService {
     private final CourseRepository courseRepository;
 
     @Override
-    public ResponseEntity<Course> save (Course course) {
+    public ResponseEntity<Course> save(Course course) {
         Course newCourse = courseRepository.save(course);
         return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
     }

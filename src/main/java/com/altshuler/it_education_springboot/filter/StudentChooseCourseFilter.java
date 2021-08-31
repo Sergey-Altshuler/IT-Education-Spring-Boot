@@ -28,7 +28,7 @@ public class StudentChooseCourseFilter implements Filter {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
             if ((course != null) && ((course.getRemaining() > 0) && ((ProjectInfo.getStudent().getCourse()) == null))) {
                 course.setRemaining(course.getRemaining() - 1);
-                courseService.add(course);
+                courseService.update(course);
                 filterChain.doFilter(req, resp);
             } else {
                 resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

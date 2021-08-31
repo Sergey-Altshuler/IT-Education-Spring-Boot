@@ -35,4 +35,10 @@ public class AdminServiceImpl implements AdminService {
         return admin.getLogin().equals(login) && admin.getPassword().equals(password);
     }
 
+    @Override
+    public void deleteAll() {
+        adminRepository.deleteAll();
+    }
+
+
 }

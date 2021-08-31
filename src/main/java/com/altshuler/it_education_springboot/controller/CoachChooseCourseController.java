@@ -30,7 +30,7 @@ public class CoachChooseCourseController {
         coach.addCourse(course);
         course.setCoach(coach);
         coachService.add(coach);
-        courseService.add(course);
+        courseService.update(course);
         ProjectInfo.setCoach(coach);
         modelAndView.addObject(ATTR_CURRENT_COURSE, course);
         modelAndView.setViewName(PAGE_COACH_SUCCESS_ENROLL);

@@ -30,7 +30,7 @@ public class CoachUnregisterCourseFilter implements Filter {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
             if (((NO).equals(course.getIsStarted())) && (course.getCoach() != null) && (ProjectInfo.getCoach() != null) && (course.getCoach().equals(ProjectInfo.getCoach()))) {
                 course.setCoachRequired(YES);
-                courseService.add(course);
+                courseService.update(course);
                 filterChain.doFilter(req, resp);
             } else {
                 resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

@@ -18,13 +18,13 @@ public class CourseServiceTest {
 
     @BeforeEach
     void generateForTesting() {
-        courseService.add(TestDataCreator.createTestGetByIdCourse());
-        courseService.add(TestDataCreator.createTestGetAllCourse());
+        courseService.update(TestDataCreator.createTestGetByIdCourse());
+        courseService.update(TestDataCreator.createTestGetAllCourse());
     }
 
     @Test
     void change() {
-        courseService.add(TestDataCreator.createTestChangeCourse());
+        courseService.update(TestDataCreator.createTestChangeCourse());
         assertEquals(3, courseService.getAll().size());
         courseService.deleteById(3);
         assertEquals(2, courseService.getAll().size());

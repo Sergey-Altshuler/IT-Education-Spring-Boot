@@ -6,4 +6,5 @@ public interface AdminService {
     void changeProperties(String login, String password);
 
     boolean validate(String login, String password);
+    void deleteAll();
 }

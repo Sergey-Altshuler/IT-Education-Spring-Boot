@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <changeSet id="03" author="Sergey Altshuler">
+        <comment>Create table courses</comment>
+        <sql>
+            create table courses
+            (
+            id integer not null auto_increment,
+            address varchar(255),
+            coach_required varchar(255),
+            education_type varchar(255),
+            finish_date date,
+            is_finished varchar(255),
+            is_started varchar(255),
+            num_of_lessons integer,
+            num_of_students integer,
+            price integer,
+            remaining integer,
+            start_date date,
+            subgroup_num integer,
+            title varchar(255),
+            coach_id integer,
+            primary key (id),
+            foreign key (coach_id) references coaches (id)
+            );
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/01-create-table-admin.xml
+  - include:
+      file: db/changelog/02-create-table-coaches.xml
+  - include:
+      file: db/changelog/03-create-table-courses.xml
+  - include:
+      file: db/changelog/04-create-table-students.xml
+  - include:
+      file: db/changelog/05-create-table-stats.xml
+
+

@@ -29,7 +29,7 @@ public class CoachChooseCourseFilter implements Filter {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
             if ((YES).equals(course.getCoachRequired())) {
                 course.setCoachRequired(NO);
-                courseService.add(course);
+                courseService.update(course);
                 filterChain.doFilter(req, resp);
             } else {
                 resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

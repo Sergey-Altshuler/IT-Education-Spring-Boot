@@ -29,13 +29,6 @@ public class StudentControllerTest extends MockInit {
     }
 
     @Test
-    void moveToStudentRegister() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.get(URL_STUDENT_MOVE_TO_REGISTER))
-                .andExpect(status().isOk())
-                .andExpect(view().name(PAGE_STUDENT_REGISTER));
-    }
-
-    @Test
     void moveToStudentValidation() throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.get(URL_STUDENT_VALIDATE))
                 .andExpect(status().isOk())

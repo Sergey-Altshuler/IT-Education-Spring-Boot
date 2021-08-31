@@ -15,7 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 import static com.altshuler.it_education_springboot.info.ProjectAttributeConstants.ATTR_COURSES;
-import static com.altshuler.it_education_springboot.info.ProjectPageConstants.*;
+import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_STUDENT_CHOOSE_COURSE;
+import static com.altshuler.it_education_springboot.info.ProjectPageConstants.PAGE_STUDENT_SUCCESS_REGISTER;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_PASSWORD;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_STUDENT;
 
@@ -29,12 +30,6 @@ public class StudentSimpleController {
     public ModelAndView validateStudent(ModelAndView modelAndView) {
         modelAndView.addObject(ATTR_COURSES, courseService.getAll());
         modelAndView.setViewName(PAGE_STUDENT_CHOOSE_COURSE);
-        return modelAndView;
-    }
-
-    @GetMapping(value = "/studentMoveToRegister")
-    public ModelAndView start(ModelAndView modelAndView) {
-        modelAndView.setViewName(PAGE_STUDENT_REGISTER);
         return modelAndView;
     }
 

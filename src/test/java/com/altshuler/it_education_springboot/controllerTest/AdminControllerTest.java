@@ -32,6 +32,14 @@ public class AdminControllerTest extends MockInit {
     }
 
     @Test
+    void moveToAdminSuccessAddCourse() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.post(URL_ADMIN_ADD_COURSE))
+                .andExpect(model().attribute(ATTR_COURSES, courseService.getAll()))
+                .andExpect(status().isOk())
+                .andExpect(view().name(PAGE_ADMIN_SUCCESS_ADD));
+    }
+
+    @Test
     void moveToAdminEnter() throws Exception {
         Mockito.when(adminService.validate(TEST_ADMIN_LOGIN,TEST_ADMIN_PASSWORD)).thenReturn(true);
         this.mockMvc.perform(MockMvcRequestBuilders.post(URL_ADMIN_ENTER)
@@ -58,26 +66,6 @@ public class AdminControllerTest extends MockInit {
                 .andExpect(view().name(PAGE_ADMIN_DISPLAY_STATS));
     }
 
-    @Test
-    void moveToAddCourse() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.get(URL_ADMIN_MOVE_TO_ADD_COURSE))
-                .andExpect(status().isOk())
-                .andExpect(view().name(PAGE_ADD_COURSE));
-    }
-
-    @Test
-    void moveToChangeProperties() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.get(URL_ADMIN_MOVE_TO_CHANGE_PROPERTIES))
-                .andExpect(status().isOk())
-                .andExpect(view().name(PAGE_ADMIN_CHANGE_PROPERTIES));
-    }
-
-    @Test
-    void moveToAdminActions() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.get(URL_ADMIN_ACTIONS))
-                .andExpect(status().isOk())
-                .andExpect(view().name(PAGE_ADMIN_ACTIONS));
-    }
 
     @Test
     void moveToAdminValidation() throws Exception {

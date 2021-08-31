@@ -29,7 +29,7 @@ public class CoachUnregisterCourseController {
         course.setCoach(null);
         coach.getCourseSet().remove(course);
         coachService.add(coach);
-        courseService.add(course);
+        courseService.update(course);
         ProjectInfo.setCoach(coach);
         modelAndView.addObject(ATTR_COURSES, courseService.getAll());
         modelAndView.setViewName(PAGE_COACH_CHOOSE_COURSE);

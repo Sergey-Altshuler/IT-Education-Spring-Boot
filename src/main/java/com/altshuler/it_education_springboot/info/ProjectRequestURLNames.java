@@ -1,0 +1,13 @@
+package com.altshuler.it_education_springboot.info;
+
+public class ProjectRequestURLNames {
+    public static final String REQUEST_ADMIN_ACTIONS = "/adminActions";
+    public static final String REQUEST_ADMIN_MOVE_TO_ADD_COURSE = "/adminMoveToAddCourse";
+    public static final String REQUEST_ADMIN_MOVE_TO_CHANGE_PROPERTIES = "/adminMoveToChangeProperties";
+    public static final String REQUEST_COACH_MOVE_TO_REGISTER = "/coachMoveToRegister";
+    public static final String REQUEST_CHOOSE_ROLE_PAGE = "/chooseRolePage";
+    public static final String REQUEST_WRONG_OPERATION = "/wrongOperation";
+    public static final String REQUEST_WRONG_DATA = "/wrongData";
+    public static final String REQUEST_WELCOME = "/welcome";
+    public static final String REQUEST_STUDENT_MOVE_TO_REGISTER = "/studentMoveToRegister";
+}

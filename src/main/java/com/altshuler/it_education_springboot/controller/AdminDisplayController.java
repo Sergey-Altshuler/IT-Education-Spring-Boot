@@ -42,7 +42,7 @@ public class AdminDisplayController {
         if (StringUtils.isNotBlank(launchId)) {
             Course course = courseService.getById(Integer.parseInt(launchId));
             course.setIsStarted(YES);
-            courseService.add(course);
+            courseService.update(course);
             markUtil.initializeMarks(course);
         }
         if (StringUtils.isNotBlank(deleteId)) {

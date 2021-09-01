@@ -37,7 +37,11 @@ public class AdminManipulateDataController {
 
     @PostMapping(value = "/adminAddCourse")
     public ModelAndView saveCourse(HttpServletRequest httpRequest, ModelAndView modelAndView) {
-        courseService.add(ConverterProvider.convert(Course.class, httpRequest));
+        Course course = (ConverterProvider.convert(Course.class, httpRequest));
+        if (course != null) {
+            course.setSubgroupNum(courseService.getNumOfCoursesWithCurrentTitle(course.getTitle()));
+        }
+        courseService.add(course);
         modelAndView.addObject(ATTR_COURSES, courseService.getAll());
         modelAndView.setViewName(PAGE_ADMIN_SUCCESS_ADD);
         return modelAndView;

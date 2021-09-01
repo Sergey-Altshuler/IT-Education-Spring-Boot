@@ -7,7 +7,10 @@ import com.altshuler.it_education_springboot.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+
+import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.NO;
 
 @Service
 @RequiredArgsConstructor
@@ -39,5 +42,11 @@ public class CourseServiceImpl implements CourseService {
 
     public void deleteAll() {
         courseRepository.deleteAll();
+    }
+
+    @Override
+    public Integer getNumOfCoursesWithCurrentTitle(String title) {
+        return (courseRepository.getCoursesListWithCurrentTitle(title).stream()
+                .mapToInt(Course::getSubgroupNum).max().orElse(0))+1;
     }
 }

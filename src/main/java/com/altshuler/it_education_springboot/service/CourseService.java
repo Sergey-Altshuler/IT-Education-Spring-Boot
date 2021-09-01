@@ -15,4 +15,6 @@ public interface CourseService {
     void deleteById(int id);
 
     void deleteAll();
+
+    Integer getNumOfCoursesWithCurrentTitle(String title);
 }

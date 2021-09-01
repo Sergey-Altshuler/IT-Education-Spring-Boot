@@ -1,7 +1,6 @@
 package com.altshuler.it_education_springboot.converter;
 
 import com.altshuler.it_education_springboot.model.Course;
-import com.altshuler.it_education_springboot.util.CourseGroupUtil;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.NO;
 import static com.altshuler.it_education_springboot.info.ProjectNamedConstants.YES;
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*;
-
 public class CourseConverter implements Converter<Course> {
-    private final CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
 
     public Course convert(HttpServletRequest request) {
         return Course.builder()
@@ -21,7 +18,6 @@ public class CourseConverter implements Converter<Course> {
                 .numOfLessons(Integer.parseInt(request.getParameter(PARAM_NUM_OF_LESSONS)))
                 .address(request.getParameter(PARAM_ADDRESS))
                 .numOfStudents(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS)))
-                .subgroupNum(courseGroupUtil.getCourseGroup(request.getParameter(PARAM_TITLE)))
                 .startDate(ParseUtil.parseDate(request.getParameter(PARAM_START_DATE)))
                 .finishDate(ParseUtil.parseDate(request.getParameter(PARAM_FINISH_DATE)))
                 .isStarted(NO)

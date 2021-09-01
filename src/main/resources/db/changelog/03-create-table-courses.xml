@@ -30,7 +30,6 @@
             primary key (id),
             foreign key (coach_id) references coaches (id)
             );
-
         </sql>
     </changeSet>
 </databaseChangeLog>

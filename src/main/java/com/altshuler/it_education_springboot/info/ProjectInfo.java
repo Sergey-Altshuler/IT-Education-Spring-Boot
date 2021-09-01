@@ -16,7 +16,6 @@ public class ProjectInfo {
     private static Course currentCourse = null;
     private static Map<Course, Map<Student, Map<String, String>>> marks = new LinkedHashMap<>();
     private static final Map<String, String> roles = new HashMap<>();
-    private static Map<String, Integer> courseGroups = new HashMap<>();
     private static Integer numOfCurrentCourse = null;
 
     static {
@@ -39,14 +38,6 @@ public class ProjectInfo {
 
     public static void setAdminInitialized(boolean isAdminInitialized) {
         ProjectInfo.AdminInitialized = isAdminInitialized;
-    }
-
-    public static Map<String, Integer> getCourseGroups() {
-        return courseGroups;
-    }
-
-    public static void setCourseGroups(Map<String, Integer> courseGroups) {
-        ProjectInfo.courseGroups = courseGroups;
     }
 
     public static Map<String, String> getRoles() {

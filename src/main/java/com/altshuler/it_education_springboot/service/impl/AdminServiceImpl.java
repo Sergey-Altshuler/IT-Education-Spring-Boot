@@ -18,8 +18,10 @@ public class AdminServiceImpl implements AdminService {
     public void initialize() {
         if (!ProjectInfo.IsAdminInitialized()) {
             ProjectInfo.setAdminInitialized(true);
-            Admin admin = Admin.builder().login(START_ADMIN_LOGIN).password(START_ADMIN_PASSWORD).build();
-            adminRepository.save(admin);
+            if (adminRepository.findAll().isEmpty()) {
+                Admin admin = Admin.builder().id(1).login(START_ADMIN_LOGIN).password(START_ADMIN_PASSWORD).build();
+                adminRepository.save(admin);
+            }
         }
     }
 

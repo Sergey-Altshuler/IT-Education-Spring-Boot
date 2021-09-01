@@ -40,5 +40,4 @@ public class MockInit {
     MarkUtil markUtil;
     @MockBean
     CourseRestService courseRestService;
-
 }

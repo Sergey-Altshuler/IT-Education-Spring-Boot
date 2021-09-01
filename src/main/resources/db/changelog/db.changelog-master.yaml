@@ -9,5 +9,7 @@ databaseChangeLog:
       file: db/changelog/04-create-table-students.xml
   - include:
       file: db/changelog/05-create-table-stats.xml
+  - include:
+      file: db/changelog/06-add-default-courses.xml
 
 

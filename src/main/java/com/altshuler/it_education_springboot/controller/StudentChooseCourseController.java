@@ -28,7 +28,7 @@ public class StudentChooseCourseController {
         Student student = ProjectInfo.getStudent();
         course.addStudent(student);
         student.setCourse(course);
-        courseService.update(course);
+        courseService.saveOrUpdate(course);
         studentService.add(student);
         ProjectInfo.setStudent(student);
         modelAndView.addObject(ATTR_CURRENT_COURSE, course);

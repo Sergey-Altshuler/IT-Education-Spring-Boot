@@ -29,7 +29,7 @@ public class StudentUnregisterCourseFilter implements Filter {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
             if (((NO.equals(course.getIsStarted()))) && (course.getStudents() != null) && (ProjectInfo.getStudent() != null) && (course.getStudents().contains(ProjectInfo.getStudent()))) {
                 course.setRemaining(course.getRemaining() + 1);
-                courseService.update(course);
+                courseService.saveOrUpdate(course);
                 filterChain.doFilter(req, resp);
             } else {
                 resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

@@ -28,7 +28,7 @@ public class StudentUnregisterCourseController {
         Student student = ProjectInfo.getStudent();
         course.getStudents().remove(student);
         student.setCourse(null);
-        courseService.update(course);
+        courseService.saveOrUpdate(course);
         studentService.add(student);
         ProjectInfo.setStudent(student);
         modelAndView.addObject(ATTR_COURSES, courseService.getAll());

@@ -31,7 +31,7 @@ public class CalculateFilter implements Filter {
             Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
             if (isFinished(course)) {
                 course.setIsFinished(YES);
-                courseService.update(course);
+                courseService.saveOrUpdate(course);
                 ProjectInfo.setCourse(course);
                 filterChain.doFilter(req, resp);
             } else {resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);}

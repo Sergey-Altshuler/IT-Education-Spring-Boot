@@ -2,7 +2,6 @@ package com.altshuler.it_education_springboot.serviceTest;
 
 import com.altshuler.it_education_springboot.TestInfo.TestDataCreator;
 import com.altshuler.it_education_springboot.service.CourseService;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,13 +17,13 @@ public class CourseServiceTest {
 
     @BeforeEach
     void generateForTesting() {
-        courseService.update(TestDataCreator.createTestGetByIdCourse());
-        courseService.update(TestDataCreator.createTestGetAllCourse());
+        courseService.saveOrUpdate(TestDataCreator.createTestGetByIdCourse());
+        courseService.saveOrUpdate(TestDataCreator.createTestGetAllCourse());
     }
 
     @Test
     void change() {
-        courseService.update(TestDataCreator.createTestChangeCourse());
+        courseService.saveOrUpdate(TestDataCreator.createTestChangeCourse());
         assertEquals(3, courseService.getAll().size());
         courseService.deleteById(3);
         assertEquals(2, courseService.getAll().size());

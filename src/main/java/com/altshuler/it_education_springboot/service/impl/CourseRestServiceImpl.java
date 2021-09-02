@@ -18,4 +18,9 @@ public class CourseRestServiceImpl implements CourseRestService {
         Course newCourse = courseRepository.save(course);
         return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
     }
+
+    @Override
+    public void delete(Integer id) {
+        courseRepository.deleteById(id);
+    }
 }

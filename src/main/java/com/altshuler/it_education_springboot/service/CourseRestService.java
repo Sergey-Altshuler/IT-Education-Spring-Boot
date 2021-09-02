@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface CourseRestService {
     ResponseEntity<Course> save(Course course);
+    void delete (Integer id);
 
 
 }

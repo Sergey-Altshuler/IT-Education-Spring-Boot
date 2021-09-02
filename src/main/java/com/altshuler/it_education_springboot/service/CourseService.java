@@ -12,7 +12,7 @@ public interface CourseService {
 
     List<Course> getAll();
 
-    void deleteById(int id);
+    void deleteById(Integer id);
 
     void deleteAll();
 

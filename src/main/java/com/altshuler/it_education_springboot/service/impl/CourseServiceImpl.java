@@ -36,8 +36,9 @@ public class CourseServiceImpl implements CourseService {
         return courseRepository.findAll();
     }
 
-    public void deleteById(int id) {
-        courseRepository.deleteById(id);
+    public void deleteById(Integer id) {
+
+        courseFeignClient.delete(id);
     }
 
     public void deleteAll() {

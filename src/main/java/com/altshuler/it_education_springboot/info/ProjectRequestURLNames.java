@@ -10,4 +10,7 @@ public class ProjectRequestURLNames {
     public static final String REQUEST_WRONG_DATA = "/wrongData";
     public static final String REQUEST_WELCOME = "/welcome";
     public static final String REQUEST_STUDENT_MOVE_TO_REGISTER = "/studentMoveToRegister";
+    public static final String REQUEST_ACCESS_DENIED = "/accessDenied";
+    public static final String REQUEST_CHOOSE_LANGUAGE = "/chooseLanguage";
+    public static final String REQUEST_LOGIN = "/login";
 }

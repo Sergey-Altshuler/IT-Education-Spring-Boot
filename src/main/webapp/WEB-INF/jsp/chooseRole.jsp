@@ -10,7 +10,9 @@
 </head>
 <body>
 <h1><fmt:message key="label.selectRole"/></h1>
-<a href="welcome"> <fmt:message key="label.goBack"/> </a>
+<form action="logout" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 <div align="center">
     <form action="chooseRole" method="post">
         <p><input name="role" type="radio" value="admin" checked class="radio"> <fmt:message key="label.admin"/></p>

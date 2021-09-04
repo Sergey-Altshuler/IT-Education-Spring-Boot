@@ -11,5 +11,7 @@ databaseChangeLog:
       file: db/changelog/05-create-table-stats.xml
   - include:
       file: db/changelog/06-add-default-courses.xml
+  - include:
+      file: db/changelog/07-create-table-users.xml
 
 

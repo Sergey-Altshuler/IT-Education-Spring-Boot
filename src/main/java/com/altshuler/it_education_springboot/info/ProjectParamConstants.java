@@ -25,5 +25,8 @@ public class ProjectParamConstants {
     public static final String PARAM_ADMIN = "admin";
     public static final String PARAM_STUDENT = "student";
     public static final String PARAM_COACH = "coach";
+    public static final String PARAM_USER_NAME = "username";
+    public static final String PARAM_USER_PASSWORD = "password";
+
 
 }

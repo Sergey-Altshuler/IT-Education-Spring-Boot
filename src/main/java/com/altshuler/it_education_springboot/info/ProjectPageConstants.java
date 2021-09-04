@@ -23,5 +23,7 @@ public class ProjectPageConstants {
     public static final String PAGE_ADMIN_CHANGE_PROPERTIES = "adminChangeProperties";
     public static final String PAGE_STUDENT_REGISTER = "studentRegister";
     public static final String PAGE_COACH_REGISTER = "coachRegister";
+    public static final String PAGE_ACCESS_DENIED = "accessDenied";
+    public static final String PAGE_USER_LOGIN = "login";
 
 }

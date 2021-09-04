@@ -53,6 +53,8 @@ public class MVCConfig implements WebMvcConfigurer {
         registry.addViewController(REQUEST_WELCOME).setViewName(PAGE_WELCOME);
         registry.addViewController(REQUEST_WRONG_DATA).setViewName(PAGE_WRONG_DATA);
         registry.addViewController(REQUEST_STUDENT_MOVE_TO_REGISTER).setViewName(PAGE_STUDENT_REGISTER);
+        registry.addViewController(REQUEST_ACCESS_DENIED).setViewName(PAGE_ACCESS_DENIED);
+        registry.addViewController(REQUEST_LOGIN).setViewName(PAGE_USER_LOGIN);
     }
 
 }

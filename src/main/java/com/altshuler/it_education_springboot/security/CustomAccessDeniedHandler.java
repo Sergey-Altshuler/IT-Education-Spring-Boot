@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static com.altshuler.it_education_springboot.info.ProjectRequestURLNames.REQUEST_ACCESS_DENIED;
-@Component
-public class CustomAccessDeniedHandler implements AccessDeniedHandler {
+/*@Component*/
+public class CustomAccessDeniedHandler /*implements AccessDeniedHandler*/ {
 
-    @Override
+   /* @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException exc)
             throws IOException {
             response.sendRedirect(request.getContextPath() + REQUEST_ACCESS_DENIED);
-    }
+    }*/
 }

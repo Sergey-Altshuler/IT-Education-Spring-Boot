@@ -3,6 +3,7 @@ package com.altshuler.it_education_springboot.controllerTest;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -15,6 +16,7 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.*
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest
+@AutoConfigureMockMvc(addFilters = false)
 public class CoachControllerTest extends MockInit {
     @Test
     void moveToCoachEnter() throws Exception {

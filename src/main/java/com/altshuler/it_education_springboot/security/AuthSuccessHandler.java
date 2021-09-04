@@ -10,12 +10,12 @@ import java.io.IOException;
 
 import static com.altshuler.it_education_springboot.info.ProjectRequestURLNames.REQUEST_CHOOSE_ROLE_PAGE;
 
-@Component
+/*@Component*/
 public class AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-    @Override
+    /*@Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException {
             getRedirectStrategy().sendRedirect(request, response, REQUEST_CHOOSE_ROLE_PAGE);
-    }
+    }*/
 }

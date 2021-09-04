@@ -27,6 +27,8 @@ public class MockInit {
     @MockBean
     StudentRepository studentRepository;
     @MockBean
+    AppUserRepository appUserRepository;
+    @MockBean
     AdminService adminService;
     @MockBean
     CoachService coachService;
@@ -36,6 +38,8 @@ public class MockInit {
     StatsService statsService;
     @MockBean
     StudentService studentService;
+    @MockBean
+    AppUserService appUserService;
     @MockBean
     MarkUtil markUtil;
     @MockBean

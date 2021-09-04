@@ -17,7 +17,7 @@
     <form action="${pageContext.request.contextPath}/login" method="post">
         <fmt:message key="label.login"/>
         <br>
-        <input required name="login" type="text"/>
+        <input required name="username" type="text"/>
         <br>
         <fmt:message key="label.password"/>
         <br>

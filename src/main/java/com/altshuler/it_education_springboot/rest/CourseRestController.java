@@ -21,7 +21,7 @@ public class CourseRestController {
     @DeleteMapping
     public ResponseEntity<Boolean> deleteCourse(@RequestParam Integer id) {
         courseRestService.delete(id);
-        return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+        return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
 }

@@ -5,6 +5,7 @@ import com.altshuler.it_education_springboot.model.Coach;
 import com.altshuler.it_education_springboot.repo.CoachRepository;
 import com.altshuler.it_education_springboot.service.CoachService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,11 +15,13 @@ import java.util.List;
 public class CoachServiceImpl implements CoachService {
 
     private final CoachRepository coachRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public Coach add(Coach coach) {
         return coachRepository.save(coach);
     }
-    public void deleteAll(){
+
+    public void deleteAll() {
         coachRepository.deleteAll();
     }
 
@@ -29,13 +32,20 @@ public class CoachServiceImpl implements CoachService {
     public void logIn(String login, String password) {
         ProjectInfo.setCoach(checkCoach(login, password));
     }
-    public Coach getById(int id){
+
+    public Coach getById(int id) {
         return coachRepository.getById(id);
     }
 
     @Override
     public Coach checkCoach(String login, String password) {
-        List<Coach> coachList = coachRepository.getCoachWithCurrentData(login, password);
-        return coachList.stream().findFirst().orElse(null);
+        Coach coach = coachRepository.getCoachWithCurrentData(login).stream().findFirst().orElse(null);
+        boolean isPasswordCorrect = false;
+        if (coach != null) {
+            isPasswordCorrect = passwordEncoder.matches(password, coach.getPassword());
+        }
+        if (!isPasswordCorrect) {
+            return null;
+        } else return coach;
     }
 }

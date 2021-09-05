@@ -12,6 +12,6 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_PASSWORD;
 @Repository
 public interface CoachRepository extends JpaRepository<Coach, Integer> {
-    @Query("from coach c where c.login = :login AND c.password = :password")
-    List<Coach> getCoachWithCurrentData(@Param(PARAM_LOGIN) String login, @Param(PARAM_PASSWORD) String password);
+    @Query("from coach c where c.login = :login")
+    List<Coach> getCoachWithCurrentData(@Param(PARAM_LOGIN) String login);
 }

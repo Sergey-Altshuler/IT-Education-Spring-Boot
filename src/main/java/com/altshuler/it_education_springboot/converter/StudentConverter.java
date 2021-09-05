@@ -11,7 +11,6 @@ public class StudentConverter implements Converter<Student> {
         return Student.builder()
                 .login(request.getParameter(PARAM_LOGIN))
                 .age(Integer.parseInt(request.getParameter(PARAM_AGE)))
-                .password(request.getParameter(PARAM_PASSWORD))
                 .name(request.getParameter(PARAM_NAME))
                 .surname(request.getParameter(PARAM_SURNAME))
                 .interests(request.getParameter(PARAM_INTERESTS))

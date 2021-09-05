@@ -4,7 +4,6 @@ import com.altshuler.it_education_springboot.TestInfo.TestDataCreator;
 import com.altshuler.it_education_springboot.info.ProjectInfo;
 import com.altshuler.it_education_springboot.model.Student;
 import com.altshuler.it_education_springboot.service.StudentService;
-import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

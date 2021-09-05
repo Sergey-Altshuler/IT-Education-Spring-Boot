@@ -12,7 +12,7 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_PASSWORD;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-    @Query("from student s where s.login = :login AND s.password = :password")
-    List<Student> getCoachWithCurrentData(@Param(PARAM_LOGIN) String login, @Param(PARAM_PASSWORD) String password);
+    @Query("from student s where s.login = :login")
+    List<Student> getStudentWithCurrentData(@Param(PARAM_LOGIN) String login);
 
 }

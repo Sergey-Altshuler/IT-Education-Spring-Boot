@@ -7,6 +7,7 @@ import com.altshuler.it_education_springboot.service.CourseService;
 import com.altshuler.it_education_springboot.service.StudentService;
 import com.altshuler.it_education_springboot.util.ParseUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ import static com.altshuler.it_education_springboot.info.ProjectParamConstants.P
 public class StudentSimpleController {
     private final CourseService courseService;
     private final StudentService studentService;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping(value = "/studentEnter")
     public ModelAndView validateStudent(ModelAndView modelAndView) {
@@ -35,7 +37,11 @@ public class StudentSimpleController {
 
     @PostMapping(value = "/studentRegister")
     public ModelAndView registerStudent(ModelAndView modelAndView, HttpServletRequest request) {
-        studentService.add(ConverterProvider.convert(Student.class, request));
+        Student student = ConverterProvider.convert(Student.class, request);
+        if (student != null) {
+            student.setPassword(passwordEncoder.encode(request.getParameter(PARAM_PASSWORD)));
+        }
+        studentService.add(student);
         modelAndView.addObject(PARAM_PASSWORD, ParseUtil.encryptPassword(request.getParameter(PARAM_PASSWORD)));
         modelAndView.setViewName(PAGE_STUDENT_SUCCESS_REGISTER);
         return modelAndView;

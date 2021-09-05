@@ -11,6 +11,6 @@ public interface CourseFeignClient {
     Course save(Course course);
 
     @DeleteMapping("/courses")
-    Boolean delete (@RequestParam Integer id);
+    void delete (@RequestParam Integer id);
 
 }

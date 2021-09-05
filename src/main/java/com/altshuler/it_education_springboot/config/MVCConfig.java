@@ -15,7 +15,6 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 import static com.altshuler.it_education_springboot.info.ProjectPageConstants.*;
-import static com.altshuler.it_education_springboot.info.ProjectParamConstants.PARAM_ADMIN;
 import static com.altshuler.it_education_springboot.info.ProjectRequestURLNames.*;
 
 @Configuration

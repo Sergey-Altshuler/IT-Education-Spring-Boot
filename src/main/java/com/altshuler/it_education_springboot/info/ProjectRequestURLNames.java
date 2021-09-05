@@ -13,6 +13,7 @@ public class ProjectRequestURLNames {
     public static final String REQUEST_ACCESS_DENIED = "/accessDenied";
     public static final String REQUEST_CHOOSE_LANGUAGE = "/chooseLanguage";
     public static final String REQUEST_LOGIN = "/login";
-    public static final String REQUEST_LOGOUT ="/logout";
-    public static final String REQUEST_DEFAULT ="/";
+    public static final String REQUEST_LOGOUT = "/logout";
+    public static final String REQUEST_DEFAULT = "/";
+    public static final String REQUEST_CSS = "/myStyles.css";
 }

@@ -29,20 +29,6 @@ public class CoachServiceTest {
         assertNotNull(coachService.getById(3));
     }
 
-    @Test
-    void validate() {
-        coachService.add(TestDataCreator.createValidateTestCoach());
-        assertTrue(coachService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
-    }
-
-    @Test
-    void logIn() {
-        coachService.add(TestDataCreator.createLoginTestCoach());
-        coachService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
-        assertEquals(ProjectInfo.getCoach().getPassword(), ENTER_PASSWORD);
-    }
-
-
     @AfterEach
     void cleanDatabase() {
         coachService.deleteAll();

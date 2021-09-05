@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static com.altshuler.it_education_springboot.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,17 +29,6 @@ public class StudentServiceTest {
     void add() {
         studentService.add(TestDataCreator.createNewTestStudent());
         assertNotNull(studentService.getById(3));
-    }
-
-    @Test
-    void validate() {
-        assertTrue(studentService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
-    }
-
-    @Test
-    void logIn() {
-        studentService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
-        assertEquals(ProjectInfo.getStudent().getPassword(), ENTER_PASSWORD);
     }
 
     @Test

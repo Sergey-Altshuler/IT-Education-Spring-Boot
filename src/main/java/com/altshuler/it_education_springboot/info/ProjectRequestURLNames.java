@@ -16,4 +16,5 @@ public class ProjectRequestURLNames {
     public static final String REQUEST_LOGOUT = "/logout";
     public static final String REQUEST_DEFAULT = "/";
     public static final String REQUEST_CSS = "/myStyles.css";
+    public static final String REQUEST_REST = "/api/v1/courses";
 }

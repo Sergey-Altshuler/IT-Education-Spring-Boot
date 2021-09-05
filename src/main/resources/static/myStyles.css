@@ -1,0 +1,177 @@
+h1 {
+    color: aliceblue;
+    background-color: purple;
+    text-align: center;
+    font-family: Arial, serif;
+    font-weight: bold;
+    width: auto;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial, serif;
+    font-weight: bold;
+    width: auto;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form {
+    font-size: 25px;
+    font-family: "Arial Black", serif;
+    font-weight: bold;
+}
+
+input {
+    width: auto;
+}
+
+.radio {
+    width: auto;
+    transform: scale(1.8);
+    margin: 10px;
+}
+
+input[type=text], input[type=password], input[type=date] {
+    padding: 10px 20px;
+    margin: 6px 3px;
+    box-sizing: border-box;
+    border: 3px solid red;
+    border-radius: 3px;
+    background-color: lavender;
+    font-size: 24px;
+
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: lightgreen;
+}
+
+input[type=submit] {
+    background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(wheat), to(white), color-stop(0.5, lavender));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    padding: 3px 7px;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+}
+
+select {
+    width: auto;
+    padding: 8px 14px;
+    border-radius: 3px;
+    background-color: azure;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+}
+
+select:focus {
+    background-color: aqua;
+}
+
+table, th, td {
+    border: 2px solid orange;
+
+}
+
+th {
+    height: 50px;
+    background-color: indigo;
+    color: azure;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+td {
+    text-align: center;
+    font-size: 20px;
+}
+
+th, td {
+    padding: 8px;
+    font-weight: bold;
+}
+
+table {
+    width: 75%;
+    border-collapse: collapse;
+}
+
+table tbody tr:nth-child(odd) {
+    background: white;
+}
+
+table tbody tr:nth-child(even) {
+    background: navajowhite;
+}
+
+tr {
+    height: 35px;
+}
+
+.decor {
+    position: relative;
+    max-width: 400px;
+    margin: 20px auto 0;
+    background: lightyellow;
+    border-radius: 30px;
+}
+
+.form-inner {
+    padding: 20px;
+}
+
+.form-inner input[type=text]{
+    display: block;
+    width: 20%;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    background: darkblue;
+    line-height: 40px;
+    border-width: 0;
+    border-radius: 20px;
+    color: beige;
+}
+
+.form-inner input:focus {
+    background-color: darkblue;
+}
+
+.form-inner input[type="submit"] {
+    margin-top: 30px;
+    background: #f69a73;
+    border-bottom: 4px solid #d87d52;
+    color: white;
+    font-size: 16px;
+}
+.myButton{
+    background-color: wheat;
+    border: 3px solid red;
+    padding: 12px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+body {
+   background: radial-gradient(yellowgreen, seashell);
+}

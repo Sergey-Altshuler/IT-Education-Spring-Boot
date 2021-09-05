@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="06" author="Sergey Altshuler">
+        <comment>Inserting default courses</comment>
+        <sql>
+            insert into courses (address, coach_required, education_type, finish_date, is_finished,  is_started, num_of_lessons, num_of_students, price, remaining, start_date, subgroup_num, title)
+            values ('Минск, Скрыганова-14', 'Yes', 'онлайн', '2022-01-01', 'No', 'No', 5, 3, 2000, 3, '2021-10-15', 1, 'C++');
+
+            insert into courses (address, coach_required, education_type, finish_date, is_finished, is_started, num_of_lessons, num_of_students, price, remaining, start_date, subgroup_num, title)
+            values ('Минск, Гикало-3', 'Yes', 'вечерняя', '2022-02-04', 'No', 'No', 6, 4, 1000, 4, '2021-11-02', 2, 'C++');
+
+            insert into courses (address, coach_required, education_type, finish_date, is_finished, is_started, num_of_lessons, num_of_students, price, remaining, start_date, subgroup_num, title)
+            values ('Минск, Скрыганова-14', 'Yes', 'онлайн', '2022-02-05', 'No', 'No', 6, 5, 3000, 5, '2021-10-18', 1, 'Java');
+
+            insert into courses (address, coach_required, education_type, finish_date, is_finished, is_started, num_of_lessons, num_of_students, price, remaining, start_date, subgroup_num, title)
+            values ('Минск, Скрыганова-14', 'Yes', 'онлайн', '2022-01-05', 'No', 'No', 5, 3, 1000, 3, '2021-10-19', 2, 'Java');
+
+            insert into courses (address, coach_required, education_type, finish_date, is_finished, is_started, num_of_lessons, num_of_students, price, remaining, start_date, subgroup_num, title)
+            values ('Минск, Гикало-3', 'Yes', 'онлайн', '2022-01-25', 'No', 'No', 5, 2, 1200, 2, '2021-10-24', 3, 'Java');
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

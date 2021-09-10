@@ -1,2 +1,2 @@
 # IT-Education-Spring-Boot
-My pet project rewritten using Spring
+My project named IT-Education-Final rewritten using Spring
